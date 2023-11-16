@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complejo Potrerillos Costa Sur</title>
+
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estilos__servicios.css">
+    <link rel="stylesheet" href="css/slide.css">
+    <link rel="stylesheet" href="css/contacto.css">
+</head>
+<body>
+    
+    <header>
+
+        <div class="container__menu">
+            <div class="logo">
+                <img src="images/logo_potrerillos.png" alt="cabanas potrerillos">
+            </div>
+            <div class="menu">
+                <i class="fas fa-bars" id="btn_menu" ></i>
+                <div id="back_menu"></div>
+                <nav id="nav">
+                    <img src="images/logo_potrerillos.png" alt="">
+                    <ul>
+                        <li><a href="index.html" id="selected">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="galeria.html">Galeria</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </header>
+
+    <main>
+
+       
+          <div class="container__cover">
+              
+               <section class="form-contact">
+
+                <header class="header_contacto">
+                <span>
+                   <i class="fa-solid fa-paper-plane"></i>
+                </span>
+                </header>
+
+                <form id="formulario-contacto netlify" action="" class="contact">
+                    <label for="name">Nombre Completo</label>
+                    <input required type="text" name="name" id="nombres">
+
+                     <label for="email">Correo electrónico</label>
+                    <input type="text" name="email" id="email">
+
+                     <label for="celular">Celular</label>
+                    <input type="text" name="celular" id="celular">
+
+                     <label for="mensaje">Mensaje</label>
+                    <textarea type="mensaje" name="mensaje" id="mensaje"></textarea>
+
+                    <input id="enviarCorreo" type="submit" value="Enviar">
+                </form>
+               
+           </section>
+          </div>
+            
+        
+
+    </main>
+                <div class="container__footer">
+                    <div class="footer__logo">
+                <img src="images/logo_fondo_naranja.png" alt="">
+            </div>
+                <div class="footer"> <ul>
+                    <li class="footer_li"><i class="fa-solid fa-location-dot"></i><b>&nbsp Complejo Potrerillos Costa Sur - Lujan de Cuyo - Mendoza - Argentina</b></li>
+                    <li class="footer_li"><i class="fa-solid fa-mobile-screen"></i><b>&nbsp +54 0261 6128811</b></li>
+                    <li class="footer_li"><i class="fa-brands fa-whatsapp"></i><b>&nbsp +54 0261 6128811</b></li>
+                    <li class="footer_li"><i class="fa-solid fa-envelope"></i><b>&nbsp potrerilloscostasur@gmail.com</b></li>
+                </ul></div>
+                </div>
+
+    <script src="js/script.js"></script>
+
+    <script>
+        const
+        btnEnvio = document.getElementById('enviarCorreo');
+        btnEnvio.addEventListener('click', function(e){
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const nombre = document.getElementById('nombres').value;
+            const mensaje = document.getElementById('mensaje').value;
+            const celular = document.getElementById('celular').value;
+            window.location.href=`mailto:complejopotrerillos@gmail.com?subjecto=envioDesdeFormulario&body=Nombre%3A${nombre}%0ACorreo%3A${email}%0ACelular%3A${celular}%0AMensaje%3A${mensaje}`;
+
+        });
+    </script>
+</body>
+</html>
