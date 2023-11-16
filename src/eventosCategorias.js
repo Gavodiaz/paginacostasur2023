@@ -15,6 +15,9 @@ contenedorCategorias.addEventListener("click", (e) => {
     
 
     const categoriaActiva = e.target.closest('a').dataset.categoria;
+
+    galeria.dataset.categoria = categoriaActiva;
+
     const fotos = dataFotos.fotos[categoriaActiva];
 
     const {id, nombre, ruta, descripcion} = fotos[0];
@@ -28,7 +31,7 @@ contenedorCategorias.addEventListener("click", (e) => {
     fotos.forEach((foto) => {
       const slide = `
             <a href="#" class="galeria_ _carousel-slide">
-                <img class="galeria__carousel-image" src="${foto.ruta}" alt="" />
+                <img class="galeria__carousel-image" src="${foto.ruta}" data-id=${foto.id} alt="" />
             </a>
                 `;
                 galeria.querySelector('.galeria__carousel-slides').innerHTML += slide;
@@ -36,7 +39,7 @@ contenedorCategorias.addEventListener("click", (e) => {
                 
     });
 
-    galeria.querySelector('.galeria__carousel-slide').classList.add('galeria__carousel-slide--active');
+    //galeria.querySelector('.galeria__carousel-slide').classList.add('galeria__carousel-slide--active');
 
   }
 });

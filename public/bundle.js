@@ -499,6 +499,9 @@ contenedorCategorias.addEventListener("click", (e) => {
     
 
     const categoriaActiva = e.target.closest('a').dataset.categoria;
+
+    galeria$2.dataset.categoria = categoriaActiva;
+
     const fotos = dataFotos.fotos[categoriaActiva];
 
     const {id, nombre, ruta, descripcion} = fotos[0];
@@ -512,7 +515,7 @@ contenedorCategorias.addEventListener("click", (e) => {
     fotos.forEach((foto) => {
       const slide = `
             <a href="#" class="galeria_ _carousel-slide">
-                <img class="galeria__carousel-image" src="${foto.ruta}" alt="" />
+                <img class="galeria__carousel-image" src="${foto.ruta}" data-id=${foto.id} alt="" />
             </a>
                 `;
                 galeria$2.querySelector('.galeria__carousel-slides').innerHTML += slide;
@@ -520,7 +523,7 @@ contenedorCategorias.addEventListener("click", (e) => {
                 
     });
 
-    galeria$2.querySelector('.galeria__carousel-slide').classList.add('galeria__carousel-slide--active');
+    //galeria.querySelector('.galeria__carousel-slide').classList.add('galeria__carousel-slide--active');
 
   }
 });
@@ -532,13 +535,27 @@ const cerrarGaleria = () =>{
     document.body.style.overflow ='';
 };
 
+const slideClick = (e) => {
+   
+    const id = e.target.dataset.id;
+    const galeria = document.getElementById('galeria');
+    const categoriaActiva = galeria.dataset.categoria;
+
+    console.log('Hiciste click en el slide', id, categoriaActiva);
+};
+
 const galeria = document.getElementById('galeria');
 
 galeria.addEventListener('click',(e) =>{
     const boton = e.target.closest('button');
 
     //compruebo si el boton en el html tiene un data de tipo acción
+    //cerrar galeria
     if (boton?.dataset?.accion==='cerrar-galeria') {
         cerrarGaleria();
     }
-});
+
+    //seleccionar imagen del slide
+    if(e.target.dataset.id){
+        slideClick(e);
+    }});
